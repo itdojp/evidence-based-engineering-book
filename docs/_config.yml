@@ -6,6 +6,8 @@ url: https://itdojp.github.io
 baseurl: /evidence-based-engineering-book
 repository: https://github.com/itdojp/evidence-based-engineering-book
 markdown: kramdown
+kramdown:
+  input: GFM
 highlighter: rouge
 plugins:
 - jekyll-feed

@@ -27,6 +27,22 @@ order: 20
 - エラーメッセージ（完全一致）
 - 除外条件（例: `-windows` `-stackoverflow`）
 - site指定（例: `site:github.com` `site:docs.example.com`）
+- version指定（例: `"v2.3"` `">=1.10"` `"2025"`）
+
+### クエリの型（例）
+
+- 日本語→英語: 日本語の用語を英語に置き換える（一次情報に近づきやすい）
+- 実装へ寄せる: `site:github.com <project> <symbol>` / `repo:<org>/<repo> <keyword>`
+- 仕様/標準へ寄せる: `site:rfc-editor.org` / `site:ietf.org` / `spec` / `standard`
+- バージョン固定: `"<keyword>" "<version>"`（「いつの挙動か」を揃える）
+- 除外でノイズ低減: `-tutorial` `-blog` `-windows`（前提が違う記事を外す）
+
+### 一次情報に辿り着けない時の次善策
+
+- 公式 Issue/PR（メンテナの判断と前提が残る）
+- リリースノート/変更履歴（互換性破壊や既知の制約が書かれやすい）
+- 実装（ソースコード）とテスト（期待動作が明文化されやすい）
+- 標準（RFC/仕様）やベンダー公式ドキュメント（用語の定義がある）
 
 検索結果を採用する場合は、対象バージョン・前提・例外の記載を確認する。
 
@@ -42,9 +58,11 @@ order: 20
 ### 良い例
 
 ```md
-検索語: "ECONNRESET" "client timeout" libraryX -windows
-追加: "retry" "default" site:github.com
-結果: 公式docsと実装の該当箇所に到達し、前提/例外をメモした
+検索語（日本語→英語）: "接続が切れる" → "ECONNRESET" "connection reset"
+絞り込み（前提固定）: libraryX "v2.3" -windows
+一次情報へ: site:docs.example.com timeout / site:github.com libraryX timeout default
+次善策: site:github.com libraryX "timeout" "default" (issue OR pull)
+結果: 公式docs + 該当コミット + 再現ログまで到達し、前提/例外をメモした
 ```
 
 ## チェックリスト
