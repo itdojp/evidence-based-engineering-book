@@ -1,0 +1,22 @@
+title: エビデンスベースド・エンジニアリング（仮）
+description: 一次情報・検索・仕様読解・検証・根拠の残し方・AI利用ガードレールなど、根拠ベースの進め方を扱う。
+author: 株式会社アイティードゥ
+lang: ja
+url: https://itdojp.github.io
+baseurl: /evidence-based-engineering-book
+repository: https://github.com/itdojp/evidence-based-engineering-book
+markdown: kramdown
+highlighter: rouge
+plugins:
+- jekyll-feed
+- jekyll-sitemap
+- jekyll-seo-tag
+- jekyll-relative-links
+- jekyll-optional-front-matter
+defaults:
+- scope:
+    path: ''
+  values:
+    layout: book
+permalink: pretty
+license_text: CC BY-NC-SA 4.0
