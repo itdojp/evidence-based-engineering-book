@@ -4,8 +4,8 @@
   "private": true,
   "description": "一次情報・検索・仕様読解・検証・根拠の残し方・AI利用ガードレールなど、根拠ベースの進め方を扱う。",
   "scripts": {
-    "start": "bundle exec jekyll serve --livereload --source docs --config docs/_config.yml",
-    "build": "bundle exec jekyll build --source docs --config docs/_config.yml",
+    "start": "bash scripts/jekyll.sh serve",
+    "build": "bash scripts/jekyll.sh build",
     "test": "npm run lint && npm run check-links",
     "lint": "markdownlint -c .markdownlint.json \"docs/**/*.md\"",
     "check-links": "find docs -name '*.md' -print0 | xargs -0 -n 1 markdown-link-check -c .markdown-link-check.json",
