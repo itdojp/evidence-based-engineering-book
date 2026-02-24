@@ -25,9 +25,11 @@ order: 20
 
 - 固有名詞（ライブラリ名/機能名）
 - エラーメッセージ（完全一致）
-- 除外条件（例: `-windows` `-stackoverflow`）
+- 除外条件（例: `-windows` `-site:stackoverflow.com`）
 - site指定（例: `site:github.com` `site:docs.example.com`）
 - version指定（例: `"v2.3"` `">=1.10"` `"2025"`）
+
+除外条件はノイズ低減に有効だが、有用情報も落ちる。一次情報の導線がある場合に限定して使う。
 
 ### クエリの型（例）
 
