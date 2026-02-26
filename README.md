@@ -6,7 +6,7 @@
 
 ## オンライン版（公開URL）
 
-- GitHub Pages: `https://itdojp.github.io/evidence-based-engineering-book/`（想定）
+- GitHub Pages: `https://itdojp.github.io/evidence-based-engineering-book/`
 - 入口: `docs/index.md`
 
 ## 開発（ローカル）
