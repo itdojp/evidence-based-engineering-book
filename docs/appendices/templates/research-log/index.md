@@ -18,6 +18,7 @@ order: 901
 
 - 手順:
 - 観測点:
+- 環境固定（OS/CPU/依存バージョン等）:
 
 ## 結果
 
@@ -28,7 +29,8 @@ order: 901
 ### 出典
 
 - タイトル:
-- URL:
+- URL（通常）:
+- Permalink（固定URL）:
 - 参照日:
 - 対象バージョン（またはコミット/リリース）:
 
@@ -59,7 +61,8 @@ order: 901
 ### 根拠（例）
 
 - タイトル: LibraryX Documentation
-- URL: <https://docs.example.com/libraryx/timeout>
+- URL（通常）: <https://docs.example.com/libraryx/timeout>
+- Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: 2026-02-24
 - 対象: v2.3
 - 該当箇所: Timeout / Defaults
