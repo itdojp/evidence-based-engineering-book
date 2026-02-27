@@ -1,7 +1,7 @@
 ---
 title: "ケーススタディ"
 layout: book
-order: 905
+order: 906
 ---
 
 # ケーススタディ

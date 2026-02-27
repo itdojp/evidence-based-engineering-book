@@ -19,8 +19,9 @@ chapters:
 appendices:
   - title: "テンプレ集"
     path: "/appendices/templates/"
+  - title: "ケーススタディ"
+    path: "/appendices/case-studies/"
   - title: "チェックリスト集"
     path: "/appendices/checklists/"
   - title: "参考文献"
     path: "/appendices/references/"
-
