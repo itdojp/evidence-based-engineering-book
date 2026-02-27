@@ -41,6 +41,57 @@ order: 50
 - 該当箇所（節番号/見出し/ファイル/関数/行）
 - 自分の結論（その根拠で何を決めたか）
 
+### 証跡（ログ/設定/スクショ）の取り扱い（マスキング前提）
+
+根拠としてログや設定を貼る場合は、秘密情報・個人情報を含めないことを前提にする。特に Issue/PR/チャットへの貼り付けは、公開範囲が広がりやすい。
+
+- 残す（調査に必要）: timestamp、request-id、HTTP status、エラー種別、対象バージョン、再現手順
+- 伏せる（貼り付け禁止）: トークン/パスワード/秘密鍵、Cookie、セッションID、個人情報、内部URLやIP（運用上の判断が必要）
+
+#### 禁止例（貼り付けない）
+
+```text
+Authorization: Bearer <ACCESS_TOKEN>
+Cookie: sessionid=<SESSION_ID>
+GET /api/v1/users?email=person@example.com
+```
+
+#### 推奨例（伏字/REDACTED）
+
+```text
+Authorization: Bearer [REDACTED]
+Cookie: sessionid=[REDACTED]
+GET /api/v1/users?email=[REDACTED]
+x-request-id: 2f3a8d1c-...
+```
+
+詳細な観点（データ分類、脅威、初動）は、別冊の security-privacy-literacy-book も参照する。
+
+### 良い引用・良い参照（ミニ例）
+
+- 仕様/ドキュメント: 版（version）+ 節番号/見出し名 + 参照日
+- 実装: Permalink（`blob/<sha>/...`）+ 行/関数名
+- Issue/PR: コメントURL + 判断の根拠（採用/不採用の理由）
+
+#### 例（悪い→良い）
+
+```text
+悪い: 「ここに書いてある」+ URL だけ（版・箇所が不明）
+良い: v2.3 / "Timeout" 節 / 参照日 2026-02-24 + 該当箇所の引用（短く） + 結論
+```
+
+### 反証（否定結果）の残し方（例）
+
+調査の品質は「試したが違った」も残っているかで上がる。否定結果が無いと、同じ試行が繰り返される。
+
+```text
+仮説: TIMEOUT=30（環境変数）でデフォルト値が変わる
+検証: v2.3 で TIMEOUT=30 を設定して実行
+結果: 変化しない（10s のまま）
+解釈: 参照した記事は v1 系の仕様だった。v2.3 は別の設定キー（CLIENT_TIMEOUT）を使用
+次: 公式docsの該当節と実装の定数定義を確認する
+```
+
 ### 恒久リンク（Permalink）の作り方（例）
 
 リンクだけだと、ページ改訂・リダイレクト・消失に弱い。可能な限り「内容が固定されるURL」を使う。

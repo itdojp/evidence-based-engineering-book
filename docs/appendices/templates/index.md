@@ -12,5 +12,6 @@ order: 900
 
 - [調査ログテンプレ](research-log/)
 - [仕様読解メモテンプレ](spec-reading-notes/)
+- [再現ログテンプレ](repro-log/)
 - [検証計画テンプレ](verification-plan/)
 - [“分からない”表明テンプレ](unknown-statement/)
