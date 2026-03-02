@@ -36,4 +36,4 @@ npm test
 
 ## ライセンス
 
-本書は **CC BY-NC-SA 4.0** で提供します。詳細は `LICENSE.md` を参照してください。
+本書は **Creative Commons BY-NC-SA 4.0（CC BY-NC-SA 4.0）** で提供します。詳細は `LICENSE.md` を参照してください。
