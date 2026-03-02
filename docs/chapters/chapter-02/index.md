@@ -14,7 +14,7 @@ order: 20
 
 ## 成果物（または判断基準）
 
-- 検索クエリの記録（調査ログに残す）
+- 検索クエリの記録（付録: [調査ログテンプレ](../../appendices/templates/research-log/)）
 - 採用した情報源と採用理由（一次情報優先）
 
 ## 本文
@@ -82,7 +82,7 @@ order: 20
 一次情報へ（一般検索）: site:docs.example.com timeout / site:github.com libraryX timeout default
 一次情報へ（GitHub検索）: repo:org/libraryX path:src timeout default
 次善策（一般検索）: site:github.com libraryX "timeout" "default" (issue OR pull)
-結果: 公式docs + 該当コミット + 再現ログまで到達し、前提/例外をメモした
+結果: 公式ドキュメント + 該当コミット + 再現ログまで到達し、前提/例外をメモした
 ```
 
 ## チェックリスト
@@ -94,8 +94,8 @@ order: 20
 
 ## まとめ
 
-- 一次情報・検証・記録をセットで運用し、再現性を担保する
-- “分かったつもり”を減らすため、前提と例外を明文化する
+- クエリは「用語/エラー/除外/サイト指定/バージョン固定」を組み合わせて設計する
+- 検索結果は仮説候補として扱い、一次情報と対象バージョンで裏取りする
 
 ## 次章への接続
 
