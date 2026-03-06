@@ -14,7 +14,7 @@ order: 906
 
 ### 背景
 
-- 現象: 外部API呼び出しがタイムアウトする（時間帯により頻発）
+- 現象: 外部 API 呼び出しがタイムアウトする（時間帯により頻発）
 - 目的: デフォルト値と変更方法を一次情報で確定し、変更の影響を検証して結論を出す
 
 ### 成果物（テンプレを埋めた例）
@@ -30,13 +30,13 @@ order: 906
 
 ### 目的
 
-- libraryX（v2.3系）のHTTPクライアントのデフォルトタイムアウト値（10s/30s等）を確定する
+- libraryX（v2.3 系）の HTTP クライアントのデフォルトタイムアウト値（10 秒/30 秒など）を確定する
 - 変更方法（設定キー、適用範囲、例外条件）を一次情報で特定する
 
 ### 仮説
 
-- 仮説A: デフォルトは30s（過去記事で見た）
-- 仮説B: v2系で仕様が変わり、デフォルトは10s（docsの断片がある）
+- 仮説A: デフォルトは 30 秒（過去記事で見た）
+- 仮説B: v2 系で仕様が変わり、デフォルトは 10 秒（公式ドキュメントの断片がある）
 
 ### 検証（調査の手順）
 
@@ -50,8 +50,8 @@ order: 906
 
 ### 結果
 
-- デフォルトは10s（v2.3）。設定キーは `CLIENT_TIMEOUT`（例）で変更可能
-- v1系記事の `TIMEOUT` は廃止（v2.3では無効）
+- デフォルトは 10 秒（v2.3）。設定キーは `CLIENT_TIMEOUT`（例）で変更可能
+- v1 系の記事の `TIMEOUT` は廃止（v2.3 では無効）
 
 ### 根拠（引用/リンク）
 
@@ -60,7 +60,7 @@ order: 906
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
-- 参照日: 2026-02-27
+- 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
 
 #### 該当箇所
@@ -70,7 +70,7 @@ order: 906
 
 #### 要約
 
-- デフォルトは10s。`CLIENT_TIMEOUT` で変更可能。接続確立前と確立後で扱いが異なる（例外条件があるため、適用範囲を確認する）
+- デフォルトは 10 秒。`CLIENT_TIMEOUT` で変更可能。接続確立前と確立後で扱いが異なる（例外条件があるため、適用範囲を確認する）
 
 #### 結論
 
@@ -83,14 +83,14 @@ order: 906
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
-- 参照日: 2026-02-27
+- 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
 - 該当箇所（節/見出し）: Timeout / Defaults, Configuration
 
 ### 前提
 
 - 対象バージョン: v2.3.x
-- 対象範囲: HTTPクライアント（外部API呼び出し）
+- 対象範囲: HTTP クライアント（外部 API 呼び出し）
 
 ### 用語
 
@@ -108,7 +108,7 @@ order: 906
 
 ### 未解決事項
 
-- streaming API の場合、読み取りの扱いが別節にある（追加確認が必要）
+- streaming API の場合、読み取りの扱いが別節にある（要確認）
 
 ## 再現ログ（記入例）
 
@@ -117,7 +117,7 @@ order: 906
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
-- 参照日: 2026-02-27
+- 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3.1
 
 ### 環境
@@ -128,8 +128,8 @@ order: 906
 
 ### 再現手順
 
-1. 遅延10秒のダミーHTTPサーバを起動する
-2. libraryX のクライアントで1リクエスト送る（リトライ無効）
+1. 遅延 10 秒のダミー HTTP サーバを起動する
+2. libraryX のクライアントで 1 リクエスト送る（リトライ無効）
 3. タイムアウト未指定で実行する
 
 ### 期待結果
@@ -155,7 +155,7 @@ error=TimeoutError elapsed=10.02s
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
-- 参照日: 2026-02-27
+- 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3.1
 
 ### 環境
@@ -165,23 +165,23 @@ error=TimeoutError elapsed=10.02s
 
 ### 最小構成
 
-- 遅延するダミーHTTPサーバ + クライアント1リクエスト（並列/リトライは無効）
+- 遅延するダミー HTTP サーバ + クライアント 1 リクエスト（並列/リトライは無効）
 
 ### 手順
 
 1. `CLIENT_TIMEOUT` 未指定で実行し、経過時間/例外/ログを記録する
 2. `CLIENT_TIMEOUT=30s` を設定して再実行し、差分を比較する
-3. 並列・リトライを有効にした場合の副作用（待ち行列、外部API負荷）を確認する
+3. 並列・リトライを有効にした場合の副作用（待ち行列、外部 API 負荷）を確認する
 
 ### 期待結果
 
-- 未指定: 約10sで失敗
-- 指定後: 30sまで待機し、失敗タイミングが変わる（または成功する）
+- 未指定: 約 10 秒で失敗
+- 指定後: 30 秒まで待機し、失敗タイミングが変わる（または成功する）
 
 ### 観測点
 
 - ログ: `x-request-id`、例外種別、経過時間
-- メトリクス: 外部APIの成功率、p95レイテンシ、エラー率
+- メトリクス: 外部 API の成功率、p95 レイテンシ、エラー率
 
 ### ロールバック
 

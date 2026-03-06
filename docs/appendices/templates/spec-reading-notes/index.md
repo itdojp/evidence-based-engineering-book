@@ -38,7 +38,7 @@ order: 902
 
 ## 記入例（抜粋）
 
-- Source: LibraryX Docs（v2.3）/ "Timeout" 節 / 参照日 2026-02-24
+- Source: LibraryX Docs（v2.3）/ "Timeout" 節 / 参照日 YYYY-MM-DD
 - 前提: v2.3 以降に適用、HTTP client 部分のみ
 - 用語: "Timeout" は接続確立+読み取りの合計上限
 - 例外: DNS失敗時は即時にエラー、リトライは最大3回
