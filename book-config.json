@@ -3,6 +3,19 @@
   "description": "一次情報・検索・仕様読解・検証・根拠の残し方・AI利用ガードレールなど、根拠ベースの進め方を扱う。",
   "author": "株式会社アイティードゥ",
   "version": "0.1.0",
+  "metadata": {
+    "readerProfile": [
+      "一次情報を起点に調査・検証・レビューを進めたいITエンジニア",
+      "テックリード、EM、レビュー担当として根拠の明示を標準化したい人",
+      "AIを補助的に使いつつ、再現性と安全性を崩したくない実務者"
+    ],
+    "expectedReadingTimeMinutes": 120,
+    "keyOutcomes": [
+      "一次情報優先で結論を組み立てる判断軸",
+      "検索・仕様読解・検証を再利用可能なログとして残す型",
+      "付録テンプレートと図表索引を使った参照導線"
+    ]
+  },
   "structure": {
     "chapters": [
       {
@@ -46,8 +59,25 @@
       {
         "id": "references",
         "title": "参考文献"
+      },
+      {
+        "id": "figure-index",
+        "title": "図表索引"
       }
     ]
+  },
+  "ux": {
+    "profile": "B",
+    "modules": {
+      "quickStart": false,
+      "readingGuide": true,
+      "checklistPack": true,
+      "troubleshootingFlow": true,
+      "conceptMap": false,
+      "figureIndex": true,
+      "legalNotice": false,
+      "glossary": false
+    }
   },
   "shared": {
     "version": "3.2.2",
