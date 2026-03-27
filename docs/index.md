@@ -55,3 +55,9 @@ order: 0
 - [ケーススタディ](appendices/case-studies/)
 - [チェックリスト集](appendices/checklists/)
 - [参考文献](appendices/references/)
+
+## 利用と更新情報
+
+- ライセンス: CC BY-NC-SA 4.0（商用利用は別契約）
+- リポジトリ: [itdojp/evidence-based-engineering-book](https://github.com/itdojp/evidence-based-engineering-book)
+- 更新差分を追う場合は、GitHub のコミット履歴と Pull Request を参照する
