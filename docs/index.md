@@ -55,3 +55,10 @@ order: 0
 - [ケーススタディ](appendices/case-studies/)
 - [チェックリスト集](appendices/checklists/)
 - [参考文献](appendices/references/)
+
+## 利用と更新情報
+
+- ライセンス: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja)（このライセンスでは商用利用は許諾されないため、商用利用は別途許諾が必要）
+- 詳細なライセンス条件: [LICENSE.md](https://github.com/itdojp/evidence-based-engineering-book/blob/main/LICENSE.md)
+- リポジトリ: [itdojp/evidence-based-engineering-book](https://github.com/itdojp/evidence-based-engineering-book)
+- 更新差分を追う場合は、GitHub の [コミット履歴](https://github.com/itdojp/evidence-based-engineering-book/commits/main/) と [PR 一覧](https://github.com/itdojp/evidence-based-engineering-book/pulls) を参照する
