@@ -38,6 +38,13 @@ order: 906
 - 仮説A: デフォルトは 30 秒（過去記事で見た）
 - 仮説B: v2 系で仕様が変わり、デフォルトは 10 秒（公式ドキュメントの断片がある）
 
+### 根拠の分類
+
+- 根拠種別: 公式Docs + 実装 + 再現ログ
+- 信頼度: 高（対象バージョン固定、実装の定数、最小再現結果が一致）
+- 再確認条件: libraryX のメジャー更新時、またはリリースノートに timeout / retry / HTTP client の変更が出た時
+- AI利用: 検索クエリと観点出しのみ。AIが提示したリンク、引用、数値は一次情報で実在確認してから採用する
+
 ### 検証（調査の手順）
 
 - 検索（一般検索）:
@@ -62,6 +69,7 @@ order: 906
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
+- 根拠種別: 公式Docs
 
 #### 該当箇所
 
@@ -86,6 +94,7 @@ order: 906
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
 - 該当箇所（節/見出し）: Timeout / Defaults, Configuration
+- 根拠種別: 公式Docs
 
 ### 前提
 
@@ -110,6 +119,13 @@ order: 906
 
 - streaming API の場合、読み取りの扱いが別節にある（要確認）
 
+### 採用判断
+
+- 信頼度: 中（仕様読解時点）。実装と再現ログで裏取りした後に高へ更新
+- このメモで決めたこと: v2.3 の通常 HTTP client では `CLIENT_TIMEOUT` を確認対象にする
+- 再確認条件: streaming API を対象に含める場合、別節を追加確認する
+- AI利用有無と裏取り結果: AIは論点整理にのみ利用し、仕様本文の引用は原文で確認済み
+
 ## 再現ログ（記入例）
 
 ### Source（参照URL/版/日付）
@@ -119,6 +135,8 @@ order: 906
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3.1
+- 根拠種別: 再現ログ
+- 信頼度: 高（環境固定、手順、観測ログあり）
 
 ### 環境
 
@@ -148,6 +166,10 @@ error=TimeoutError elapsed=10.02s
 - `TIMEOUT=30s`（環境変数）を設定しても挙動が変わらない（v2.3では無効）
 - 該当記事は v1 系の手順だったため、採用しない（根拠に残す）
 
+### 再確認条件
+
+- libraryX のメジャー更新、HTTP client の設定変更、ランタイム更新、リトライ設定の変更
+
 ## 検証計画（記入例）
 
 ### Source（参照URL/版/日付）
@@ -157,6 +179,8 @@ error=TimeoutError elapsed=10.02s
 - Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3.1
+- 根拠種別: 公式Docs + 検証計画
+- 信頼度: 中（実行前）。実測ログ取得後に高へ更新
 
 ### 環境
 
@@ -187,6 +211,12 @@ error=TimeoutError elapsed=10.02s
 
 - 変更は環境変数/機能フラグで切替し、即時に元へ戻せるようにする
 - 適用範囲は段階リリース（特定環境→一部トラフィック→全体）とする
+
+### 採用判断
+
+- 検証結果で決めること: `CLIENT_TIMEOUT=30s` を段階リリースするか
+- 失敗時に採用しないこと: v1 系の記事にある `TIMEOUT` 設定キーを採用しない
+- 再確認条件: 外部 API の SLA、p95 レイテンシ、リトライ仕様が変わった場合
 
 ## 関連（次に読むと良い）
 
