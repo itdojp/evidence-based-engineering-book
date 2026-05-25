@@ -38,11 +38,35 @@ function assertEqual(actual, expected, label) {
   }
 }
 
+function assertNoDuplicates(values, label) {
+  const seen = new Set();
+  const duplicates = [];
+  for (const value of values) {
+    if (seen.has(value) && !duplicates.includes(value)) {
+      duplicates.push(value);
+    }
+    seen.add(value);
+  }
+  if (duplicates.length > 0) {
+    fail(`${label}: duplicate entries ${JSON.stringify(duplicates)}`);
+  }
+}
+
 function assertArraySetEqual(actual, expected, label) {
+  assertNoDuplicates(actual, `${label} actual`);
+  assertNoDuplicates(expected, `${label} expected`);
   const actualSet = [...new Set(actual)].sort();
   const expectedSet = [...new Set(expected)].sort();
   if (actualSet.length !== expectedSet.length || actualSet.some((value, index) => value !== expectedSet[index])) {
-    fail(`${label}: expected ${JSON.stringify(expectedSet)}, got ${JSON.stringify(actualSet)}`);
+    fail(`${label}: expected set ${JSON.stringify(expectedSet)}, got ${JSON.stringify(actualSet)}`);
+  }
+}
+
+function assertArrayEqual(actual, expected, label) {
+  assertNoDuplicates(actual, `${label} actual`);
+  assertNoDuplicates(expected, `${label} expected`);
+  if (actual.length !== expected.length || actual.some((value, index) => value !== expected[index])) {
+    fail(`${label}: expected ordered list ${JSON.stringify(expected)}, got ${JSON.stringify(actual)}`);
   }
 }
 
@@ -115,6 +139,35 @@ function collectMarkdownLinks(filePath, prefix) {
   return ids;
 }
 
+function collectNavigationIds(filePath, section, prefix) {
+  const lines = readText(filePath).split(/\r?\n/);
+  const sectionStart = lines.findIndex((line) => line.trim() === `${section}:`);
+  if (sectionStart < 0) {
+    fail(`${filePath}: ${section} sectionが見つかりません`);
+    return [];
+  }
+
+  const ids = [];
+  for (const line of lines.slice(sectionStart + 1)) {
+    if (/^\S/.test(line) && line.trim() !== '' && !line.trim().startsWith('#')) {
+      break;
+    }
+    const pathMatch = line.match(/path:\s*["']?([^"'\s]+)["']?/);
+    if (!pathMatch) {
+      continue;
+    }
+    const navPath = pathMatch[1];
+    if (!navPath.startsWith(prefix)) {
+      continue;
+    }
+    const [, id] = navPath.slice(prefix.length).match(/^([^/]+)/) || [];
+    if (id) {
+      ids.push(id);
+    }
+  }
+  return ids;
+}
+
 const bookConfig = readJson('book-config.json');
 const packageJson = readJson('package.json');
 const packageLock = readJson('package-lock.json');
@@ -163,8 +216,10 @@ const configuredChapterIds = (bookConfig.structure?.chapters || []).map((item) =
 const configuredAppendixIds = (bookConfig.structure?.appendices || []).map((item) => item.id);
 assertArraySetEqual(configuredChapterIds, listContentIds('docs/chapters'), 'book-config chapters vs docs/chapters');
 assertArraySetEqual(configuredAppendixIds, listContentIds('docs/appendices'), 'book-config appendices vs docs/appendices');
-assertArraySetEqual(collectMarkdownLinks('docs/index.md', 'chapters/'), configuredChapterIds, 'docs/index.md chapter links vs book-config chapters');
-assertArraySetEqual(collectMarkdownLinks('docs/index.md', 'appendices/'), configuredAppendixIds, 'docs/index.md appendix links vs book-config appendices');
+assertArrayEqual(collectMarkdownLinks('docs/index.md', 'chapters/'), configuredChapterIds, 'docs/index.md chapter links vs book-config chapters');
+assertArrayEqual(collectMarkdownLinks('docs/index.md', 'appendices/'), configuredAppendixIds, 'docs/index.md appendix links vs book-config appendices');
+assertArrayEqual(collectNavigationIds('docs/_data/navigation.yml', 'chapters', '/chapters/'), configuredChapterIds, 'navigation chapter order vs book-config chapters');
+assertArrayEqual(collectNavigationIds('docs/_data/navigation.yml', 'appendices', '/appendices/'), configuredAppendixIds, 'navigation appendix order vs book-config appendices');
 
 if (failures.length > 0) {
   console.error('Metadata consistency check failed:');
