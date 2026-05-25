@@ -30,7 +30,10 @@ npm start
 # ビルド
 npm run build
 
-# テスト（markdown lint / link check）
+# メタデータ整合性チェック
+npm run check:metadata
+
+# テスト（メタデータ / markdown lint / link check）
 npm test
 ```
 
