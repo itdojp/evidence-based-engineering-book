@@ -1,0 +1,38 @@
+name: Book QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  qa:
+    name: metadata, markdown, links, and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Check metadata consistency
+        run: npm run check:metadata
+      - name: Check markdown lint
+        run: npm run lint
+      - name: Check links
+        run: npm run check-links
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: Install Ruby dependencies
+        run: bundle install
+      - name: Build GitHub Pages site
+        run: npm run build
