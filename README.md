@@ -20,7 +20,7 @@
 ### 手順
 
 ```bash
-npm install
+npm ci
 
 # Ruby/Bundler が無い場合は Podman/Docker を利用します（初回は image pull + bundle install が走ります）
 
@@ -35,6 +35,9 @@ npm run check:metadata
 
 # テスト（メタデータ / markdown lint / link check）
 npm test
+
+# 依存関係監査（devDependencies を含む）
+npm audit
 ```
 
 ## ライセンス

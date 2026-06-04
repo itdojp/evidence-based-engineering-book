@@ -3,7 +3,9 @@ node_modules/
 
 # Jekyll
 _site/
+docs/_site/
 .jekyll-cache/
+.jekyll-metadata
 .sass-cache/
 
 # Ruby
