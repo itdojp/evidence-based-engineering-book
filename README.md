@@ -2,9 +2,9 @@
 
 ## 概要
 
-一次情報・検索・仕様読解・検証・根拠の残し方・AI利用ガードレールなど、根拠ベースの進め方を扱う。
+一次情報・検索・仕様読解・検証・根拠の残し方・AI 利用ガードレールなど、根拠ベースの進め方を扱う。
 
-## オンライン版（公開URL）
+## オンライン版（公開 URL）
 
 - GitHub Pages: `https://itdojp.github.io/evidence-based-engineering-book/`
 - 入口: `docs/index.md`
