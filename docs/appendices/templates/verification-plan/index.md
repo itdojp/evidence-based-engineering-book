@@ -6,11 +6,11 @@ order: 903
 
 # 検証計画テンプレ
 
-## Source（参照URL/版/日付）
+## Source（参照 URL/版/日付）
 
 - タイトル:
 - URL（通常）:
-- Permalink（固定URL）:
+- Permalink（固定 URL）:
 - 参照日:
 - 対象バージョン（またはコミット/リリース）:
 - 根拠種別:
@@ -52,7 +52,7 @@ order: 903
 ## 記入例（抜粋）
 
 - Source: LibraryX Docs（v2.3）/ "Timeout" 節 / 参照日 YYYY-MM-DD
-- 根拠種別: 公式Docs + 検証計画
+- 根拠種別: 公式 Docs + 検証計画
 - 信頼度: 中（検証前）。実測ログ取得後に高へ更新
 - 環境: Ubuntu 24.04 / Runtime 1.2.3 / libraryX v2.3.1
 - 最小構成: 遅延するダミー HTTP サーバ + クライアント 1 リクエスト（リトライ無効）

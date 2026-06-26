@@ -40,10 +40,10 @@ order: 906
 
 ### 根拠の分類
 
-- 根拠種別: 公式Docs + 実装 + 再現ログ
+- 根拠種別: 公式 Docs + 実装 + 再現ログ
 - 信頼度: 高（対象バージョン固定、実装の定数、最小再現結果が一致）
 - 再確認条件: libraryX のメジャー更新時、またはリリースノートに timeout / retry / HTTP client の変更が出た時
-- AI利用: 検索クエリと観点出しのみ。AIが提示したリンク、引用、数値は一次情報で実在確認してから採用する
+- AI 利用: 検索クエリと観点出しのみ。AI が提示したリンク、引用、数値は一次情報で実在確認してから採用する
 
 ### 検証（調査の手順）
 
@@ -66,10 +66,10 @@ order: 906
 
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
-- Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
+- Permalink（固定 URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
-- 根拠種別: 公式Docs
+- 根拠種別: 公式 Docs
 
 #### 該当箇所
 
@@ -86,15 +86,15 @@ order: 906
 
 ## 仕様読解メモ（記入例）
 
-### Source（参照URL/版/日付）
+### Source（参照 URL/版/日付）
 
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
-- Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
+- Permalink（固定 URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
 - 該当箇所（節/見出し）: Timeout / Defaults, Configuration
-- 根拠種別: 公式Docs
+- 根拠種別: 公式 Docs
 
 ### 前提
 
@@ -124,15 +124,15 @@ order: 906
 - 信頼度: 中（仕様読解時点）。実装と再現ログで裏取りした後に高へ更新
 - このメモで決めたこと: v2.3 の通常 HTTP client では `CLIENT_TIMEOUT` を確認対象にする
 - 再確認条件: streaming API を対象に含める場合、別節を追加確認する
-- AI利用有無と裏取り結果: AIは論点整理にのみ利用し、仕様本文の引用は原文で確認済み
+- AI 利用有無と裏取り結果: AI は論点整理にのみ利用し、仕様本文の引用は原文で確認済み
 
 ## 再現ログ（記入例）
 
-### Source（参照URL/版/日付）
+### Source（参照 URL/版/日付）
 
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
-- Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
+- Permalink（固定 URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3.1
 - 根拠種別: 再現ログ
@@ -172,14 +172,14 @@ error=TimeoutError elapsed=10.02s
 
 ## 検証計画（記入例）
 
-### Source（参照URL/版/日付）
+### Source（参照 URL/版/日付）
 
 - タイトル: LibraryX Documentation / Timeout
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
-- Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
+- Permalink（固定 URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3.1
-- 根拠種別: 公式Docs + 検証計画
+- 根拠種別: 公式 Docs + 検証計画
 - 信頼度: 中（実行前）。実測ログ取得後に高へ更新
 
 ### 環境

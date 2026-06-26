@@ -16,10 +16,10 @@ order: 901
 
 ## 根拠の分類
 
-- 根拠種別（公式Docs/仕様/実装/検証ログ/二次情報/AI生成物/経験則）:
+- 根拠種別（公式 Docs/仕様/実装/検証ログ/二次情報/AI 生成物/経験則）:
 - 信頼度（高/中/低）:
 - 再確認条件（次回いつ見直すか）:
-- AI利用有無と用途（クエリ生成/要約/コード案/未使用など）:
+- AI 利用有無と用途（クエリ生成/要約/コード案/未使用など）:
 
 ## 検証
 
@@ -37,7 +37,7 @@ order: 901
 
 - タイトル:
 - URL（通常）:
-- Permalink（固定URL）:
+- Permalink（固定 URL）:
 - 参照日:
 - 対象バージョン（またはコミット/リリース）:
 - 根拠種別:
@@ -63,10 +63,10 @@ order: 901
 
 - 目的: libraryX のタイムアウト仕様を確認
 - 仮説: デフォルトは 30 秒
-- 根拠種別: 公式Docs + 実装 + 再現ログ
+- 根拠種別: 公式 Docs + 実装 + 再現ログ
 - 信頼度: 高（対象バージョン固定、最小再現済み）
 - 再確認条件: libraryX の次メジャー更新時、またはリリースノートに timeout 変更が出た時
-- AI利用: クエリ候補の生成のみ。リンク/引用/結論は一次情報で確認
+- AI 利用: クエリ候補の生成のみ。リンク/引用/結論は一次情報で確認
 - 検証: 公式ドキュメント→実装→再現コード
 - 結果: デフォルトは 10 秒（設定で変更可）
 
@@ -74,7 +74,7 @@ order: 901
 
 - タイトル: LibraryX Documentation
 - URL（通常）: <https://docs.example.com/libraryx/timeout>
-- Permalink（固定URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
+- Permalink（固定 URL）: <https://docs.example.com/libraryx/timeout?version=v2.3>
 - 参照日: YYYY-MM-DD
 - 対象バージョン: v2.3
 - 該当箇所: Timeout / Defaults

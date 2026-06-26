@@ -6,11 +6,11 @@ order: 905
 
 # 再現ログテンプレ
 
-## Source（参照URL/版/日付）
+## Source（参照 URL/版/日付）
 
 - タイトル:
 - URL（通常）:
-- Permalink（固定URL）:
+- Permalink（固定 URL）:
 - 参照日:
 - 対象バージョン（またはコミット/リリース）:
 - 根拠種別:

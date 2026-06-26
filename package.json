@@ -2,7 +2,7 @@
   "name": "evidence-based-engineering-book",
   "version": "0.1.0",
   "private": true,
-  "description": "一次情報・検索・仕様読解・検証・根拠の残し方・AI利用ガードレールなど、根拠ベースの進め方を扱う。",
+  "description": "一次情報・検索・仕様読解・検証・根拠の残し方・AI 利用ガードレールなど、根拠ベースの進め方を扱う。",
   "scripts": {
     "start": "bash scripts/jekyll.sh serve",
     "build": "bash scripts/jekyll.sh build",
