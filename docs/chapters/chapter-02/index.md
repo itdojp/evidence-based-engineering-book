@@ -43,10 +43,22 @@ order: 20
 
 同じ見た目のクエリでも、検索先によって「有効な検索演算子」「ヒットする対象」が異なる。クエリ例には「適用先（一般検索/GitHub検索）」を明示する。
 
-- 一般検索（Google/Bing など）: `site:` `-keyword` `OR` `""` などが有効
-- GitHub検索（Code/Issue/PR）: `repo:` `path:` `language:` `symbol:` `is:issue` などが有効
+- Google 検索: 完全一致の `"..."`、除外の `-keyword`、サイト指定の `site:` は
+  [Google 検索ヘルプ「ウェブ検索の結果を絞り込む」](https://support.google.com/websearch/answer/2466433?co=GENIE.Platform%3DDesktop&hl=ja&rd=1)
+  で確認する。演算子と検索語の間には空白を入れない。
+- Bing 検索: `site:` は
+  [Microsoft Support「Advanced search keywords」](https://support.microsoft.com/en-US/bing/advanced-search-keywords)、
+  完全一致の `"..."`、除外の `-keyword`、論理和の `OR` は
+  [Microsoft Support「Advanced search options」](https://support.microsoft.com/en-US/bing/advanced-search-options)
+  で確認する。`OR` と `NOT` は大文字で記述し、`site:` のコロンの後には空白を入れない。
+- GitHub コード検索: `repo:` `path:` `language:` `symbol:` は
+  [GitHub Docs「Understanding GitHub Code Search syntax」](https://docs.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax)
+  で確認する。
+- GitHub Issue/PR 検索: `repo:` `is:issue` `is:pr` は
+  [GitHub Docs「Filtering and searching issues and pull requests」](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/filtering-and-searching-issues-and-pull-requests)
+  で確認する。コード検索の構文資料とは参照先が異なる。
 
-注意: 検索演算子や挙動は提供側の仕様変更で変わりうる。最終的には一次情報（公式ドキュメント）で要確認とする。
+注意: 上記は 2026-07-21 JST に確認した情報である。検索演算子の仕様や提供地域は変更される可能性があるため、利用時点の各提供者の公式ドキュメントを正本とする。
 
 ### 検索先 × 目的（対応表）
 
@@ -91,7 +103,7 @@ order: 20
 絞り込み（前提固定）: libraryX "v2.3" -windows
 一次情報へ（一般検索）: site:docs.example.com timeout / site:github.com libraryX timeout default
 一次情報へ（GitHub検索）: repo:org/libraryX path:src timeout default
-次善策（一般検索）: site:github.com libraryX "timeout" "default" (issue OR pull)
+次善策（一般検索/Bing）: site:github.com libraryX "timeout" "default" (issue OR pull)
 結果: 公式ドキュメント + 該当コミット + 再現ログまで到達し、前提/例外をメモした
 ```
 
