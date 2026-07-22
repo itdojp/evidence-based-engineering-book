@@ -27,7 +27,12 @@
   "bugs": {
     "url": "https://github.com/itdojp/evidence-based-engineering-book/issues"
   },
+  "engines": {
+    "node": ">=22.22.2"
+  },
   "overrides": {
-    "encoding-sniffer": "1.0.2"
+    "cheerio": {
+      "encoding-sniffer": "1.0.2"
+    }
   }
 }
