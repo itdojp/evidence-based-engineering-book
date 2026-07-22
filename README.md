@@ -13,7 +13,7 @@
 
 ### 前提
 
-- Node.js（`npm`）
+- Node.js 22.22.2以上（`npm`。CIは22.22.2へ固定）
 - （推奨）Podman または Docker（Ruby が無い環境でも `npm start` / `npm run build` を実行可能）
 - Ruby + Bundler（導入済みの場合はそれを利用）
 
