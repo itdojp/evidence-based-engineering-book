@@ -16,7 +16,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "markdown-link-check": "^3.14.2",
-    "markdownlint-cli": "^0.48.0"
+    "markdownlint-cli": "^0.49.1"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,13 @@
   "homepage": "https://itdojp.github.io/evidence-based-engineering-book/",
   "bugs": {
     "url": "https://github.com/itdojp/evidence-based-engineering-book/issues"
+  },
+  "engines": {
+    "node": ">=22.22.2"
+  },
+  "overrides": {
+    "cheerio": {
+      "encoding-sniffer": "1.0.2"
+    }
   }
 }
